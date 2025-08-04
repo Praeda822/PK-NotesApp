@@ -9,6 +9,7 @@ const TextAreaInput = ({ label, name, value, onChange, required = false }) => {
         className="w-full p-2 border rounded-lg"
         value={value}
         onChange={onChange}
+        required={required}
       ></textarea>
     </div>
   );

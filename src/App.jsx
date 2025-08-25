@@ -1,9 +1,15 @@
-import { useState } from "react";
+import { useState, useEffect } from "react";
 import NoteForm from "./assets/components/NoteForm";
 import NoteList from "./assets/components/NoteList";
 
 const App = () => {
   const [notes, setNotes] = useState([]);
+
+  // Will run when anything in the depenency array changes
+  // Since notes is in the dependency array, this will run whenever a note changes
+  useEffect(() => {
+    localStorage.setItem("notes", JSON.stringify(notes));
+  }, [notes]);
 
   const deleteNote = (id) => {
     const confirmDelete = window.confirm(
